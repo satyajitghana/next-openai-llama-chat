@@ -26,6 +26,12 @@ With batching and memory lock and parallel processing
 ./server -m ./mistral-7b-instruct.gguf-q2_k.gguf -c 4096 -t 8 --host 0.0.0.0 -np 4 --mlock -t 13 -cb
 ```
 
+Reduce context length for more speed, and increase threads to number of cores in your instance
+
+```
+./server -m ./mistral-7b-instruct.gguf-q2_k.gguf -c 512 -t 8 --host 0.0.0.0 -np 4 --mlock -t 16 -cb --numa
+```
+
 ## Frontend
 
 Install dependencies
