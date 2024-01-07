@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { Input } from "../input";
 import { ChatHandler } from "./chat.interface";
+import VoiceInput from "./voice-input";
 
 export default function ChatInput(
   props: Pick<
@@ -11,11 +12,12 @@ export default function ChatInput(
     | "onFileError"
     | "handleSubmit"
     | "handleInputChange"
+    | "setInput"
   >
 ) {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     props.handleSubmit(e);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   return (
@@ -29,6 +31,7 @@ export default function ChatInput(
           value={props.input}
           onChange={props.handleInputChange}
         />
+        <VoiceInput setInput={props.setInput} />
         <Button type="submit" disabled={props.isLoading}>
           Send message
         </Button>

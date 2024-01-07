@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface Message {
   id: string;
   content: string;
@@ -7,6 +9,7 @@ export interface Message {
 export interface ChatHandler {
   messages: Message[];
   input: string;
+  setInput: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   handleSubmit: (
     e: React.FormEvent<HTMLFormElement>,
